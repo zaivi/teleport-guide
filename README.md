@@ -11,3 +11,29 @@ The open source access platform used by DevSecOps teams for SSH, Kubernetes, dat
 - Example access ssh from Teleport
 
 ![](.github/.screenshot/ssh.png)
+
+## Deployment
+
+Assuming that Docker is installed, simply execute the following command to build and run the Docker Containers:
+
+```
+docker compose -f docker-compose.yaml up
+```
+
+To shutdown Docker Containers, execute the following command:
+
+```
+docker compose -f docker-compose.yaml down
+```
+
+## Config authentication account for users
+
+Attach to teleport-server server, then create a user:
+
+```
+tctl users add --roles=... --logins=user,ubuntu,ec2-user name-user
+```
+
+Setup password and two factor authentication:
+
+![](.github/.screenshot/authen.png)
